@@ -79,6 +79,8 @@ const insertData = (tableName, tableData) => {
 
 // WebSQL 테이블 읽기
 const readTable = (tableName) => {
+  if (!tableName) return '테이블 이름이 없습니다.';
+
   return new Promise((resolve, reject) => {
     database.transaction((tx) => {
       tx.executeSql(
@@ -100,6 +102,8 @@ const readTable = (tableName) => {
 // WebSQL 테이블 삭제
 // 테스트 필요
 const deleteTable = (tableName) => {
+  if (!tableName) return '테이블 이름이 없습니다.';
+
   return new Promise((resolve, reject) => {
     database.transaction(
       (tx) => {
